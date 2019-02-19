@@ -38,11 +38,13 @@ The slave does not need them, as it will get them from the master when we start 
 
 ### To verify
 
+```
 vagrant ssh pgmaster
    sudo -u postgres psql -d postgres -c "create database sampledb;"
    sudo -u postgres psql -d sampledb -c "create table tab (val int); insert into tab values (42);"
  
 vagrant ssh pgslave 
 	sudo -u postgres psql -d sampledb -c "select * from tab;"
-	
+```
+
 	
